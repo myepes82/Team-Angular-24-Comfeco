@@ -19,7 +19,9 @@ export class AccountService {
 
 
 
+
   private fecth(): Observable<IUser>{
-    return 
+    
+    return this.http.get<IUser>(`${this.URL_SERVER}/api/account`)
   }
 }
