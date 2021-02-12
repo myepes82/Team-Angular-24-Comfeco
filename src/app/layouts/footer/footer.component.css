@@ -1,0 +1,106 @@
+footer {
+    left:0px;
+    bottom:0px;
+    height:40px;
+    width:100%;
+    background: #f4f4f4;
+    text-align: center;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;      
+  }
+  
+span {
+    color: #000 ;
+    font-weight: bolder;
+    font-size: 1.05em;
+    flex-grow: 4;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+}
+
+.button-container .btn-separater {
+    margin: 0px 10px;
+}
+
+@media screen and (max-width:900px) {
+      footer {
+          left:0px;
+          bottom:0px;
+          height:40px;
+          width:100%;
+          background: #f4f4f4;
+          text-align: center;
+          padding-top: 20px;
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: center;
+      
+        }
+
+        
+        span {
+            color: #000 ;
+            font-weight: bolder;
+            font-size: 1.05em;
+            flex-grow: 4;
+      
+           
+          }
+
+          .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: -10px;
+          
+          }
+          
+
+          .button-container .btn-separater {
+            margin: 0px 10px;
+        }
+          
+  }
+  @media screen and (max-width:500px) {
+      footer {
+          left: 0px;
+          bottom: 0px;
+          height: 100%;
+          width: 100%;
+          background: #f4f4f4;
+          text-align: center;
+          padding-top: 20px;
+          display: flex;
+          flex-wrap: nowrap;
+          flex-direction: column;
+          justify-content: center;
+      
+            
+        }
+
+        
+        span {
+            color: #000 ;
+            font-weight: bolder;
+            font-size: 1.05em;
+            flex-grow: 4;
+            margin: 5px;        
+          }
+
+          .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+
+          }
+
+          .button-container .btn-separater {
+            margin: 0px 10px;
+        }
+  }
+  

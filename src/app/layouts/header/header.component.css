@@ -1,0 +1,18 @@
+.header {
+    height: 60px;
+    background-color: #f4f4f4;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  h2.logo {
+    margin-left: 2%;
+  }
+  
+  h2.logo img{
+    max-width: 150px;
+
+  }
+  
