@@ -14,7 +14,7 @@ export class LoginService {
   constructor(private jwtService: AuthJwtService,
               private accountService: AccountService) { }
 
-  login(credentials: ILogin): Observable<IUser | null>{
+  /*login(credentials: ILogin): Observable<IUser | null>{
     return this.jwtService.login(credentials).pipe(flatMap(()=> ))
-  }
+  }*/
 }
