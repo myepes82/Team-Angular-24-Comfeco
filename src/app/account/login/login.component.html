@@ -1,1 +1,37 @@
 <p>login works!</p>
+<div class="login-wrapper">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>
+          <a routerLink="/inicio/login" routerLinkActive="mat-accent">Inicia sesión</a>
+          <a>|</a>
+          <a routerLink="/inicio/register" routerLinkActive="mat-accent">Regístrate</a>
+        </mat-card-title>
+      </mat-card-header>
+  
+      <form class="example-form">
+  
+        <mat-card-content>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Correo Electronico</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Contraseña</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </p>
+        </mat-card-content>
+  
+        <p routerLink="/inicio/resset-password">
+          ¿Olvidaste tu contraseña?
+        </p>
+        
+        <button mat-stroked-button color="" class="btn-block">Ingresar</button>
+  
+      </form>
+    </mat-card>
+  </div>
