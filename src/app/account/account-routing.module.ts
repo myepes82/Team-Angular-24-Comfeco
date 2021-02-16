@@ -7,19 +7,19 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
-    path: '/register',
+    path: 'register',
     component: RegisterComponent
   },
   {
-    path: '/verification/:id',
+    path: 'verification/:id',
     component: ActivateComponent
   },
   {
-    path: '/password-reset',
+    path: 'password-reset',
     component: PasswordResetComponent
   },
   {
-    path: '/login',
+    path: 'login',
     component: LoginComponent
   }
 ];
