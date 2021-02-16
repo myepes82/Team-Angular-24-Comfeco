@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AccountRoutingModule } from './account-routing.module';
 import { RegisterComponent } from './register/register.component';
@@ -12,6 +14,8 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -19,12 +23,18 @@ import { MatGridListModule } from '@angular/material/grid-list';
   exports:[RegisterComponent, ActivateComponent, PasswordResetComponent, LoginComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
     AccountRoutingModule,
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTabsModule,
+    MatIconModule,
+
   ]
 })
 export class AccountModule { }

@@ -1,1 +1,46 @@
-<p>register works!</p>
+<form class="example-form" [formGroup]="registerForm" >
+
+  <div class="dataForm">
+
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Nick</mat-label>
+        <input matInput formControlName="nickName">
+        <mat-error *ngIf="nickName.hasError('required')">Este campo es Obligatorio*</mat-error>
+
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Correo electrónico </mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="email.hasError('required')">Este campo es Obligatorio*</mat-error>
+        <mat-error *ngIf="email.hasError('pattern')">Ingrese un email valido*</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.hasError('required')">Este campo es Obligatorio*</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-error *ngIf="passwordConfirm.invalid">El Campo no Coincide*</mat-error>
+        <mat-label>Confirmar Contraseña </mat-label>
+        <input matInput formControlName="passwordConfirm" (mouseleave)="verifyPasswordConfirm()" matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+
+      </mat-form-field>
+    </p>
+
+    <button mat-stroked-button color="" class="btn-block" type="submit" (click)="onSave()">Crear una cuenta</button>
+
+    </div>
+  </form>

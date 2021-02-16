@@ -7,24 +7,37 @@ import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
-    path: '/register',
-    component: RegisterComponent
+    path: '',
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      },
+      {
+        path: 'verification/:id',
+        component: ActivateComponent
+      },
+      {
+        path: 'password-reset',
+        component: PasswordResetComponent
+      },
+
+      {
+        path: '**', redirectTo: 'login'
+      }
+
+    ],
+
   },
-  {
-    path: '/verification/:id',
-    component: ActivateComponent
-  },
-  {
-    path: '/password-reset',
-    component: PasswordResetComponent
-  },
-  {
-    path: '/login',
-    component: LoginComponent
-  }
+
 ];
 
 @NgModule({
+
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
