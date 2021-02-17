@@ -1,9 +1,11 @@
-import {HttpParams} from '@angular/common/http'
+import {HttpParams} from '@angular/common/http';
 
-export const createRequestOption = (req?: any): HttpParams =>{
-    let params = new HttpParams(); 
-    Object.keys(req).forEach(key => {
-        params.append(key, req[key] )
-    })
-    return params;
-}
+export const createRequestOption =  (req?: any ): HttpParams => {
+  let options: HttpParams = new HttpParams();
+  if (req){
+    Object.keys(req).forEach(key  => {
+      options = options.set(key, req[key]);
+    });
+  }
+  return options;
+};

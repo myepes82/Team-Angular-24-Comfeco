@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IUser } from '../../shared/models/user.model';
+import { IUser, User } from '../../shared/models/user.model';
 import { RegisterService } from './register.service';
 
 @Component({
@@ -11,11 +11,14 @@ import { RegisterService } from './register.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
 
   // ------ Formulario de Registro ------
 
+  my_password?:String  = ''
+  wrongPassword?: boolean = false;
   hide = true;
+  unvalidSave= false;
 
 
   registerForm = new FormGroup({
@@ -31,36 +34,50 @@ export class RegisterComponent implements OnInit {
   get passwordConfirm() { return this.registerForm.get('passwordConfirm'); }
 
   constructor(private registerService: RegisterService) { }
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
-
+    this.registerForm.reset()
   }
 
 
-  verifyPasswordConfirm(){
-    if (this.passwordConfirm !== this.password){
-      this.passwordConfirm.setErrors({notUnique:true});
-      console.log("NO COINCIDE");
+
+
+
+
+  generateUser(): User {
+    return {
+      ...new User(),
+      nickName: this.registerForm.get('nickName')!.value,
+      email: this.registerForm.get('email')!.value,
+      password: this.registerForm.get('password')!.value
     }
   }
 
-  public checkError = (controlName: string, errorName: string) => {
-    return this.registerForm.controls[controlName].hasError(errorName);
+
+
+
+
+  addPasswordContent(): void{
+    this.my_password = this.registerForm.get('password').value
   }
 
 
 
 
 
-  onSave() {
-    //console.log(this.registerForm.value);
-
-    this.registerService.register(this.registerForm.value)
-    .subscribe((res) => {
-      console.log(res);
-    })
-
-
+  register(): void{
+    if(this.my_password === this.registerForm.get('passwordConfirm').value){
+      this.unvalidSave = false;
+      this.registerService.register(this.generateUser())
+      .subscribe(res => {
+        console.log(res)
+      }, error => {
+        console.log(error)
+      })
+    }else this.unvalidSave= true;
   }
 
 }
