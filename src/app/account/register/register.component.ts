@@ -19,10 +19,10 @@ export class RegisterComponent implements OnInit {
 
 
   registerForm = new FormGroup({
-    nickName: new FormControl('',Validators.required),
+    nickName: new FormControl('',[Validators.required,  Validators.minLength(3), Validators.maxLength(20)]),
     email: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}')]),
-    password: new FormControl('', Validators.required),
-    passwordConfirm: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required,  Validators.minLength(8), Validators.maxLength(20)]),
+    passwordConfirm: new FormControl('', [Validators.required,  Validators.minLength(8), Validators.maxLength(20)]),
   });
 
   get nickName() { return this.registerForm.get('nickName'); }
@@ -36,12 +36,21 @@ export class RegisterComponent implements OnInit {
 
   }
 
+
   verifyPasswordConfirm(){
     if (this.passwordConfirm !== this.password){
       this.passwordConfirm.setErrors({notUnique:true});
       console.log("NO COINCIDE");
     }
   }
+
+  public checkError = (controlName: string, errorName: string) => {
+    return this.registerForm.controls[controlName].hasError(errorName);
+  }
+
+
+
+
 
   onSave() {
     //console.log(this.registerForm.value);

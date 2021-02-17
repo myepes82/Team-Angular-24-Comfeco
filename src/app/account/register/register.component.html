@@ -7,6 +7,8 @@
         <mat-label>Nick</mat-label>
         <input matInput formControlName="nickName">
         <mat-error *ngIf="nickName.hasError('required')">Este campo es Obligatorio*</mat-error>
+        <mat-error *ngIf="nickName.hasError('minlength')">Debe tener minimo 3 caractéres*</mat-error>
+        <mat-error *ngIf="nickName.hasError('maxlength')">Debe tener maximo 20 caractéres*</mat-error>
 
       </mat-form-field>
     </p>
@@ -26,6 +28,8 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
         <mat-error *ngIf="password.hasError('required')">Este campo es Obligatorio*</mat-error>
+        <mat-error *ngIf="password.hasError('minlength')">Debe tener minimo 8 caractéres*</mat-error>
+        <mat-error *ngIf="password.hasError('maxlength')">Debe tener maximo 20 caractéres*</mat-error>
       </mat-form-field>
     </p>
     <p>
@@ -36,6 +40,8 @@
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-error *ngIf="passwordConfirm.hasError('minlength')">Debe tener minimo 8 caractéres*</mat-error>
+        <mat-error *ngIf="passwordConfirm.hasError('maxlength')">Debe tener maximo 20 caractéres*</mat-error>
 
       </mat-form-field>
     </p>

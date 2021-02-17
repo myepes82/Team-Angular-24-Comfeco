@@ -18,10 +18,10 @@ export class LoginComponent implements OnInit {
 
   loginForm = new FormGroup({
     emailLogin: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}')]),
-    passwordLogin: new FormControl('', Validators.required)
+    passwordLogin: new FormControl('', [Validators.required,  Validators.minLength(8), Validators.maxLength(20)])
   });
 
- 
+
 
   get emailLogin() { return this.loginForm.get('emailLogin'); }
   get passwordLogin() { return this.loginForm.get('passwordLogin'); }

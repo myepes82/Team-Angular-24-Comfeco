@@ -21,6 +21,8 @@
                   <mat-label>Contraseña</mat-label>
                   <input matInput formControlName="passwordLogin">
                   <mat-error *ngIf="passwordLogin.hasError('required')">Este campo es Obligatorio*</mat-error>
+                  <mat-error *ngIf="passwordLogin.hasError('minlength')">Debe tener minimo 8 caractéres*</mat-error>
+                  <mat-error *ngIf="passwordLogin.hasError('maxlength')">Debe tener maximo 20 caractéres*</mat-error>
                 </mat-form-field>
               </p>
 
