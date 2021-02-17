@@ -1,37 +1,47 @@
-<p>login works!</p>
 <div class="login-wrapper">
     <mat-card class="box">
-      <mat-card-header>
-        <mat-card-title>
-          <a routerLink="/inicio/login" routerLinkActive="mat-accent">Inicia sesión</a>
-          <a>|</a>
-          <a routerLink="/inicio/register" routerLinkActive="mat-accent">Regístrate</a>
-        </mat-card-title>
-      </mat-card-header>
-  
-      <form class="example-form">
-  
         <mat-card-content>
-          <p>
-            <mat-form-field appearance="outline">
-              <mat-label>Correo Electronico</mat-label>
-              <input matInput>
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field appearance="outline">
-              <mat-label>Contraseña</mat-label>
-              <input matInput>
-            </mat-form-field>
-          </p>
+
+          <mat-tab-group mat-align-tabs="start">
+            <mat-tab label="Inicia Sesión">
+
+              <form class="example-form" [formGroup]="loginForm">
+              <div class="dataForm">
+
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Correo Electronico</mat-label>
+                  <input matInput formControlName="emailLogin" type="email">
+                  <mat-error *ngIf="emailLogin.hasError('required')">Este campo es Obligatorio*</mat-error>
+                  <mat-error *ngIf="emailLogin.hasError('pattern')">Ingrese un email valido*</mat-error>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Contraseña</mat-label>
+                  <input matInput formControlName="passwordLogin">
+                  <mat-error *ngIf="passwordLogin.hasError('required')">Este campo es Obligatorio*</mat-error>
+                </mat-form-field>
+              </p>
+
+              <p routerLink="/inicio/resset-password">
+                ¿Olvidaste tu contraseña?
+              </p>
+
+              <button mat-stroked-button color="" class="btn-block">Ingresar</button>
+
+              </div>
+            </form>
+
+            </mat-tab>
+            <mat-tab label="Regístrate">
+              <app-register></app-register>
+            </mat-tab>
+          </mat-tab-group>
+
         </mat-card-content>
-  
-        <p routerLink="/inicio/resset-password">
-          ¿Olvidaste tu contraseña?
-        </p>
-        
-        <button mat-stroked-button color="" class="btn-block">Ingresar</button>
-  
-      </form>
+
     </mat-card>
   </div>
+
+

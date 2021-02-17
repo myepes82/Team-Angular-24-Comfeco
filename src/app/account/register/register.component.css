@@ -1,0 +1,49 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.mat-card-title {
+  display: flex;
+
+}
+
+.mat-card-title .mat-accent  {
+  text-decoration: revert;
+}
+
+.mat-card-title .mat-accent a {
+  margin: 10px;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.dataForm {
+margin-top: 15%;
+}
+
+
+
+.box {
+  background-color: #f4f4f4;
+  padding: 50px;
+}
+
+.mat-card-header {
+  display: flex;
+  justify-content: center;
+}
+.mat-form-field {
+  display: block;
+  width: 100%;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background: #554646;
+}

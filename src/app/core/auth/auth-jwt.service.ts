@@ -16,6 +16,7 @@ export class AuthJwtService {
     return this.http.post(`${this.URL_SERVER}/api/auth/login`, credentials)
     .pipe(map( (res: any) => {
       this.authenticateSuccess(res.token, credentials.rememberMe)
+      this.saveUserId(res._id)
       return res;
     }))
   }
@@ -27,6 +28,19 @@ export class AuthJwtService {
     }else{
       sessionStorage.setItem('auth-token', response)
     }
+  }
+
+  loggout(): Observable<void>{
+    return new Observable((observer)=> {
+      localStorage.removeItem('auth-token')
+      sessionStorage.removeItem('auth-token')
+      observer.complete()
+    })
+    
+  }
+
+  private saveUserId(response): void {
+    localStorage.setItem('comfeco-user-id', response)
   }
 
 }

@@ -8,6 +8,7 @@ const routes: Routes = [
     loadChildren: ()=> import('./account/account.module')
     .then(m => m.AccountModule)
   },
+  /*
   {
     path: 'home',
     component: HomeComponent
@@ -17,6 +18,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   }
+  */
 ];
 
 @NgModule({
